@@ -6,7 +6,7 @@
 <form method="GET" action = "{{route('postlist')}}">
     <div class="container">
         <div class="post">
-            <h3 class="post-header">PostList</h3>
+            <h3>PostList</h3>
             
             <div class="form-control row">
                     <input type="text"  name="search">
