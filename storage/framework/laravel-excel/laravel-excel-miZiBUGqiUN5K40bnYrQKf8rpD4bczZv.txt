@@ -1,0 +1,2 @@
+﻿title,description,status,create_user_id,updated_user_id,created_at,updated_at
+My Firtst Post2,tired tired,1,12,12,"TOCHAR(SYSDATE,YYYY-MM-DD)","TOCHAR(SYSDATE,YYYY-MM-DD)"

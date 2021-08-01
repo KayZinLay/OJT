@@ -4429,10 +4429,6 @@ input[type="button"].btn-block {
   float: none;
 }
 
-.navbar-nav .login-right {
-  float: right;
-}
-
 .navbar-text {
   display: inline-block;
   padding-top: 0.5rem;
@@ -4473,6 +4469,10 @@ input[type="button"].btn-block {
 .navbar-nav-scroll {
   max-height: 75vh;
   overflow-y: auto;
+}
+
+.navbar-user {
+  float: right;
 }
 
 @media (max-width: 575.98px) {

@@ -1,0 +1,13 @@
+.form-group {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.title {
+    margin-top: 100px;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 15px;
+}

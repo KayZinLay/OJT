@@ -59,4 +59,9 @@ class LoginController extends Controller
             ->with('incorrect', 'Email or password incorrect!')
             ->withInput();
     }
+
+    public function logout(Request $request) {
+        Auth::logout();
+        return redirect()->route('login');
+      }
 }

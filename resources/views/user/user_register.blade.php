@@ -1,16 +1,18 @@
 @extends('layouts.hearder_menu')
-@section('user', 'active')
-@section('content')
+@extends('layouts.footer')
 
-<div class="container">
-    <div class="user">
-        <h5 class="user-header">Create User</h5>
-        <div class="card-body">
-            <form method="POST" action="{{ route('user#store') }}" id="userRegistForm">
+
+<!-- css -->
+<link href="{{ asset('css/list.css') }}" rel="stylesheet">
+
+<form method="POST" action="{{ route('user#store') }}"  enctype='multipart/form-data'>
+    <div class="container">
+        
+        <h5 class="title">Create User</h5>
                 @csrf
                 <div class="form-group row">
                     <label for="name" class="col-sm-4">
-                        <i class="fas fa-address-book mr-2"></i>Name<span class="text-danger ml-2">*</span>
+                        Name<span class="text-danger ml-2">*</span>
                     </label>
                     <input id="name" type="text" class="col-sm-6 form-control @error('name') is-invalid @enderror"
                         name="name" value="{{ old('name') }}">
@@ -24,7 +26,7 @@
                 </div>
                 <div class="form-group row">
                     <label for="email" class="col-sm-4">
-                        <i class="fas fa-envelope-open mr-2"></i>Email Address<span class="text-danger ml-2">*</span>
+                        Email Address<span class="text-danger ml-2">*</span>
                     </label>
                     <input id="email" type="email" class="col-sm-6 form-control @error('email') is-invalid @enderror"
                         name="email" value="{{ old('email') }}">
@@ -38,7 +40,7 @@
                 </div>
                 <div class="form-group row">
                     <label for="password" class="col-sm-4">
-                        <i class="fas fa-envelope-open mr-2"></i>Password<span class="text-danger ml-2">*</span>
+                        Password<span class="text-danger ml-2">*</span>
                     </label>
                     <input id="password" type="password" class="col-sm-6 form-control @error('password') is-invalid @enderror"
                         name="password" value="{{ old('password') }}">
@@ -52,9 +54,9 @@
                 </div>
                 <div class="form-group row">
                     <label for="confrimpassword" class="col-sm-4">
-                        <i class="fas fa-envelope-open mr-2"></i>Confrim password<span class="text-danger ml-2">*</span>
+                        Confrim password<span class="text-danger ml-2">*</span>
                     </label>
-                    <input id="confrimpassword" type="confrimpassword" class="col-sm-6 form-control @error('confrimpassword') is-invalid @enderror"
+                    <input id="confrimpassword" type="password" class="col-sm-6 form-control @error('confrimpassword') is-invalid @enderror"
                         name="confrimpassword" value="{{ old('confrimpassword') }}">
 
                     @error('confrimpassword')
@@ -65,57 +67,74 @@
                     @enderror
                 </div>
                 <div class="form-group row">
-                    <label for="confrimpassword" class="col-sm-4">
-                        <i class="fas fa-envelope-open mr-2"></i>Confrim password<span class="text-danger ml-2">*</span>
+                    <label for="role" class="col-sm-4">
+                        Type<span class="text-danger ml-2">*</span>
                     </label>
-                    <input id="confrimpassword" type="confrimpassword" class="col-sm-6 form-control @error('confrimpassword') is-invalid @enderror"
-                        name="confrimpassword" value="{{ old('confrimpassword') }}">
+                    <select id="type" class="col-sm-6 custom-select form-control @error('type') is-invalid @enderror"
+                        name="type">
+                            <option value="0">Admin</option>
+                            <option value="1">User</option>
+                        </select>
 
-                    @error('confrimpassword')
+                    @error('type')
                     <span class="col-sm-4"></span>
                     <span class="invalid-feedback col-sm-6" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                </div>
-                <div class="form-group">
-                    <label><i class="fas fa-solid fa-sort mr-1"></i>Type</label>
-                        <select type="text" name="type" class="form-control">
-                            <option value=""></option>
-                            <option value="admin">Admin</option>
-                            <option value="user">User</option>
-                            <option value="Visitor">Visitor</option>
-                        </select>
                 </div>
                 <div class="form-group row">
                     <label for="phone" class="col-sm-4">
-                        <i class="fas fa-envelope-open mr-2"></i>Phone<span class="text-danger ml-2">*</span>
+                        Phone
                     </label>
-                    <input id="phone" type="phone" class="col-sm-6 form-control @error('phone') is-invalid @enderror"
-                        name="phone" value="{{ old('phone') }}">
-
-                    @error('phone')
-                    <span class="col-sm-4"></span>
-                    <span class="invalid-feedback col-sm-6" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                    <input id="phone" type="text" class="col-sm-6 form-control @error('phone') is-invalid @enderror"
+                        name="phone" value="{{ old('phone') }}"></input>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4">
-                        <i class="fas fa-user-friends mr-2"></i>Date of Birth<span class="text-red ml-2">*</span>
+                        Date of Birth
                     </label>
-                    <input class="form-control col-sm-6" name="dob" id="dob">{{ old('dob') }}</input>
+                    <input class="form-control col-sm-6" type="date" name="dob" id="dob">{{ old('dob') }}</input>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4">
-                        <i class="fas fa-user-friends mr-2"></i>Address<span class="text-red ml-2">*</span>
+                        Address
                     </label>
                     <textarea class="form-control col-sm-6" name="address" id="dob" rows="10">{{ old('address') }}</textarea>
                 </div>
+                <div class="form-group row">
+                    <label class="col-sm-4">
+                        Profile<span class="text-red ml-2">*</span>
+                    </label>
+                    <input type="file" name="profile" class="form-control col-sm-6" onchange="loadPreview(this);" id="profile_image" width="200" height="150" required>{{ old('profile') }}</input>
+                    <label for="profile_image" class="col-sm-4"></label>
+                    <img id="preview_img" class="" width="200" height="150"/>
+                    </div>
+                </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn" data-dismiss="modal">Confirm</button>
-                    <button type="button" class="btn" id="btnAdd">Clear</button>
+                    <button type="submit" class="btn btn-outline-primary ml-2">Confrim</button>
+                    <button type="button" class="btn btn-outline-success"
+                        onclick="location.reload();">Clear</button>
                 </div> 
+    
     </div>
-</div>
+</form>
+
+<script>
+  function loadPreview(input, id) {
+    id = id || '#preview_img';
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+ 
+        reader.onload = function (e) {
+            $(id)
+                    .attr('src', e.target.result)
+                    .width(200)
+                    .height(150);
+        };
+ 
+        reader.readAsDataURL(input.files[0]);
+    }
+ }
+</script>
+

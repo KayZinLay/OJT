@@ -24,27 +24,29 @@
     <nav class="navbar navbar-expand-lg navbar-dark nav-bg-primary fixed-top">
         <div class="topnav">
             <a class="navbar-brand"><h3>SCM Bulletin Board<h3></a>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
+            <div class="collapse navbar-collapse" id="navbarResponsive"> 
             <ul class="navbar-nav ml-auto">
                 @auth
-                @if (Auth::user()->role_id == config('constants.ROLES_NAME.Admin'))
-                <a class="navbar-brand" href="{{ route('postlist') }}">
+                @if (Auth::user()->type == config('constants.ROLES_NAME.Admin'))
+                <a class="navbar-brand" href="{{ route('userlist') }}">
                 Users
-                </a>
-                @else
-                <a class="navbar-brand" href="{{ route(userRegister) }}">
-                User
                 </a>
                 @endif
                 @endauth
-                <a class="navbar-brand" href="{{ route('postlist') }}">
-                    User
+                
+                <a class="navbar-brand" href="{{ route('user#register') }}">
+                User
                 </a>
-                <a class="navbar-brand" href="{{ route('postlist') }}">
-                    Posts
+                
+                <a class="navbar-brand" href="{{ route('post#postregister') }}">
+                Posts
                 </a>
-                <a class="navbar-brand login-right" href="{{ route('postlist') }}">loginusername</a>
-                <a class="navbar-brand" href="#" class="login">logout</a>
+                <!-- <div class="topnav-right"> -->
+                    <a href="{{ route('user#profile') }}" class="navbar-brand">
+                    {{ Auth::user()->name }}
+                    </a>
+                    <a href="{{ route('logout') }}" class="navbar-brand">logout</a>
+                <!-- </div> -->
             </ul>
             </div>
            

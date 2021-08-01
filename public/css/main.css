@@ -5,7 +5,7 @@ body {
     font-size: 14px;
 }
 
-.white-pre {
+/* .white-pre {
     white-space: pre;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -14,7 +14,7 @@ body {
 
 .white-pre-line {
     white-space: pre-line;
-}
+} */
 
 .form-control {
     display: block;
@@ -61,10 +61,10 @@ label {
     font-size: 14px;
 }
 
-.scm-logo {
+/* .scm-logo {
     margin-right: 16px;
     height: 70px;
-}
+} */
 
 .header-auth {
     font-size: 1.2rem;
@@ -84,6 +84,10 @@ label {
     margin-right: 16px;
 }
 
+.topnav-right {
+    float: right;
+  }
+
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
     color: #2F5597 !important;
@@ -92,7 +96,7 @@ label {
     border-color: #dee2e6 #dee2e6 #f8fafc;
 }
 
-.card-shadow {
+/* .card-shadow {
     border: 1px solid rgba(24, 154, 211, 0.8);
     box-shadow: 0.5px 0.5px 8px rgba(24, 154, 211, 0.8);
 }
@@ -135,7 +139,7 @@ label {
     background-color: #2F5597;
     border-radius: 0 30px 30px 0;
     padding: 17px;
-}
+} */
 
 .navbar-brand {
     font-size: 1.425rem !important;
@@ -180,26 +184,11 @@ a:hover{
     cursor: pointer;
 }
 
-
-/* Common Layout */
-
-.main-page .container .main-card {
-    min-height: 640px;
+/* for postList design*/
+.w-80 {
+    width: 80% !important;
 }
 
-
-/* Search common */
-
-.search-panel {
-    height: 610px;
-    overflow: auto;
-}
-
-.search-panel-open {
-    position: absolute;
-    top: 30px;
-    left: 10px;
-}
 
 .btn {
     font-size: 1rem;
@@ -272,59 +261,3 @@ textarea {
     width: 90% !important;
 }
 
-
-/* Applicant Register */
-
-.s009 {
-    /* min-height: 100vh;*/
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -ms-flex-align: center;
-    align-items: center;
-    /*background: #d9eff5;*/
-    padding: 10px;
-    font-family: 'Lato', sans-serif;
-}
-
-/* for postList design*/
-.w-80 {
-    width: 80% !important;
-}
-
-#job_require {
-    border-color: #fff;
-    height: 100px !important;
-}
-
-@media screen and (max-width: 767px) {
-    .applicant-recruitment form .inner-form .basic-search .input-field input {
-        padding: 10px 80px 10px 15px;
-    }
-    .applicant-recruitment form .inner-form .basic-search .input-field .icon-wrap {
-        width: 80px;
-        -ms-flex-pack: center;
-        justify-content: center;
-    }
-    .applicant-recruitment form .inner-form .basic-search .input-field .icon-wrap svg {
-        width: 30px;
-        height: 30px;
-    }
-    .applicant-recruitment form .inner-form .recruitment-search {
-        padding: 30px 15px;
-    }
-    .applicant-recruitment form .inner-form .recruitment-search .row {
-        display: block;
-    }
-    .applicant-recruitment form .inner-form .recruitment-search .input-field {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-}
-
-.hiddenRow {
-    padding: 0 4px !important;
-    background-color: #eeeeee;
-    font-size: 13px;
-}

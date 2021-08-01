@@ -15,23 +15,22 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password',)->nullable();
-            $table->string('profile',255)->nullable();
-            $table->string('type',1)->nullable();
-            $table->string('phone',20);
-            $table->string('address',255);
-            $table->date('dob');
-            $table->integer('create_user_id')->nullable();
-            $table->integer('updated_user_id')->nullable();
-            $table->integer('deleted_user_id');
-            $table->datetime('created_at')->nullable();
-            $table->datetime('updated_at')->nullable();
-            $table->datetime('deleted_at');
+            $table->string('password',);
+            $table->string('profile',255);
+            $table->string('type',1)->default('1');
+            $table->string('phone',20)->nullable();
+            $table->string('address',255)->nullable();
+            $table->date('dob')->nullable();
+            $table->integer('create_user_id');
+            $table->integer('updated_user_id');
+            $table->integer('deleted_user_id')->nullable();
+            $table->datetime('created_at');
+            $table->datetime('updated_at');
+            $table->datetime('deleted_at')->nullable();
             $table->rememberToken();
-            $table->timestamps();
+            
         });
     }
 

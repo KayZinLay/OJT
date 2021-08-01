@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use DB;
 
 class Post extends Authenticatable
 {
@@ -31,5 +32,19 @@ class Post extends Authenticatable
         'updated_at',
         'deleted_at',
     ];
+
+    public static function getAllPosts()
+    {
+
+        $posts =  DB::table('posts')
+                    ->select("posts.id","posts.title","posts.description", "posts.created_at","u.name")
+                    ->leftjoin("users as u", "u.id", "=","posts.create_user_id")
+                    ->whereNull('posts.deleted_at')
+                    ->whereNull('posts.deleted_user_id')
+                    ->where('posts.status', config("constants.ACTIVE_STATUS"))
+                    ->get()->toArray();
+
+        return $posts;
+    }
 
 }

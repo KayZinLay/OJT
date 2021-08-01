@@ -64,16 +64,12 @@
                                                 {{ old('remember') ? 'checked' : '' }}> Keep me signed in
                                         </label>
                                     </div>
-                                    @if (Route::has('password.request'))
+                                    <!-- @if (Route::has('password.request'))
                                         <a class="text-small forgot-password text-black"
                                             href="{{ route('password.request') }}">
                                             {{ __('Forgot Your Password?') }}
                                         </a>
-                                    @endif
-                                </div>
-                                <div class="text-block text-center my-3">
-                                    <span class="text-small font-weight-semibold">Not a member ?</span>
-                                    <a href="register.html" class="text-black text-small">Create new account</a>
+                                    @endif -->
                                 </div>
                             </form>
                         </div>
